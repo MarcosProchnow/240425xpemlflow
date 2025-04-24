@@ -26,7 +26,7 @@ y = iris['species']  # Rótulos
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Configurar o MLflow
-#mlflow.set_tracking_uri("http://127.0.0.1:5000")  # URI do servidor MLflow (opcional)
+# mlflow.set_tracking_uri("http://127.0.0.1:5000")  # URI do servidor MLflow (opcional)
 mlflow.set_experiment("Iris_Classification_Experiment")
 
 # Treinar o modelo Random Forest com MLflow
@@ -98,4 +98,6 @@ async def health_check():
 # Executar o servidor localmente (para testes)
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+    #uvicorn.run(app, host="127.0.0.1", port=8000)
+    port = int(os.environ.get("PORT", 8000))  # Obtém a porta do ambiente (Render define automaticamente)
+    uvicorn.run(app, host="0.0.0.0", port=port)

@@ -31,3 +31,13 @@ jobs:
       - name: Run tests
         run: |
           poetry run pytest
+
+      # Passo 5: Fazer o deploy para o Render
+      - name: Deploy to Render
+        run: |
+          echo "Fazendo deploy para o Render..."
+          curl -X POST \
+            -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
+            -H "Content-Type: application/json" \
+            -d '{"clearCache": true}' \
+            https://api.render.com/v1/services/$SERVICE_ID/deploys

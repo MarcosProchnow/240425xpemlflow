@@ -1,0 +1,12 @@
+GET http://localhost:8000/health
+
+###
+POST http://localhost:8000/predict
+Content-Type: application/json
+
+{
+    "sepal_length": 1.9,
+    "sepal_width": 2.5,
+    "petal_length": 1.4,
+    "petal_width": 2.2
+}

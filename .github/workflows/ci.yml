@@ -27,4 +27,7 @@ jobs:
           pip install poetry
           poetry install --no-root
 
-
+      # Passo 4: Testar o código (opcional)
+      - name: Run tests
+        run: |
+          poetry run pytest

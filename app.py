@@ -98,6 +98,6 @@ async def health_check():
 # Executar o servidor localmente (para testes)
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+   # uvicorn.run(app, host="127.0.0.1", port=8000)
     port = int(os.environ.get("PORT", 8000))  # Obtém a porta do ambiente (Render define automaticamente)
-   # uvicorn.run(app, host="0.0.0.0", port=port)
+    uvicorn.run(app, host="0.0.0.0", port=port)
